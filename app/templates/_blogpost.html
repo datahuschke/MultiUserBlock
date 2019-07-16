@@ -1,0 +1,21 @@
+<div class="blogpost">
+    <div class="blogpost-subject">
+        <h3>
+            <input type="submit" name="like" value="+{{content.likes}}">
+            <a href="/{{content.key().id()}}" name="subject">{{content.subject}}</a>
+            {% if like_params.e_pid == content.key().id() %}
+                <p class="error">{{like_params.e_msg}}</p>
+            {% endif %}
+        </h3>
+    </div>
+    <div class="blogpost-content" name="content">{{content.content}}</div>
+    <div class="comment_and_like">
+        <a href="/{{content.key().id()}}/newcomment" name="newcomment">comment</a>
+        {% if content.user == session %}
+         <span> | </span><a href="/{{content.key().id()}}/editpost">edit</a>
+         <span> | </span><a href="/{{content.key().id()}}/deletepost">delete</a>
+        {% endif %}
+    </div>
+    <br>
+</div>
+<input type="hidden" name="pid" value="{{content.key().id()}}">

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} - Signed up!{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+    <h2 name="username">Welcome, {{username}}!</h2>
+    <br>
+    <p>Nice to see you here! Would you like to share something? <a href="/newpost">New Post</a></p>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

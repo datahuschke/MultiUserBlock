@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}- {{content.subject}}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+
+    <h3>Thank you for commiting the following blog post:</h3>
+
+    <form method="POST">
+        {% include "_blogpost.html" %}
+
+        {% for comment in comments %}
+            {% if loop.first %}
+                <hr>
+            {% endif %}
+
+            {% include "_comment.html" %}
+
+            {% if not loop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </form>
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

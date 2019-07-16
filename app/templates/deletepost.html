@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}- {{content.subject}}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+
+    <h3 class="error">do you really want to delete the following blog post:</h3>
+
+    <form method="POST">
+        {% include "_blogpost.html" %}
+
+        <input type="submit" name="delete" value="delete permanently">
+
+        <h3 class="error">this will also delete all these comments:</h3>
+
+        {% for comment in comments %}
+            {% if loop.first %}
+                <hr>
+            {% endif %}
+
+            {% include "_comment.html" %}
+
+            {% if not loop.last %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </form>
+
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

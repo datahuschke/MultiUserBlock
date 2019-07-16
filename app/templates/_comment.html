@@ -1,0 +1,38 @@
+<div class="comment">
+    <a name="{{comment.key().id()}}"></a>
+    <div class="comment-owner">
+        {{comment.user}}
+        <br>
+        {{comment.created}}
+        <br>
+        {% if comment.lastupdate %}
+            last updated: {{comment.lastupdate}}
+        {% endif %}
+    </div>
+
+    {% if delete %}
+        {% if delete.id == comment.key().id() %}
+            <h3 class="error">{{delete.msg}}</h3>
+        {% endif %}
+    {% endif %}
+
+    <div class="comment-content">
+        {{comment.content}}
+    </div>
+
+    {% if delete %}
+        {% if delete.id == comment.key().id() %}
+            <br>
+            <input type="submit" name="delete" value="delete permanently">
+        {% endif %}
+    {% endif %}
+
+    {% if comment.user == session %}
+        <div class="comment_and_like">
+            <a href="/{{comment.key().id()}}/editcomment">edit</a>
+            <span> | </span>
+            <a href="/{{comment.key().id()}}/deletecomment">delete</a>
+        </div>
+        <br>
+     {% endif %}
+</div>

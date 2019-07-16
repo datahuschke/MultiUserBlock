@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}- New Post{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+    <h2>This is going to be your post:</h2>
+    {% if not editing %}
+        <a href="/">back</a>
+    {% endif %}
+    <br>
+
+    <form method="post">
+        <label>
+            <div>title</div>
+            <input type="text" name="subject" value="{{subject}}">
+        </label>
+
+        <br><br>
+
+        <label>
+            <div>blogpost</div>
+            <textarea name="content">{{content}}</textarea>
+        </label>
+
+        <div class="error">{{error}}</div>
+
+        <br>
+
+        <input type="submit">
+
+        {% if editing %}
+            <a href="/{{editing}}">cancel</a>
+        {% endif %}
+    </form>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

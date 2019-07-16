@@ -1,0 +1,14 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+# check out: https://cloud.google.com/appengine/docs/standard/python/config/appref
+handlers:
+- url: /css
+  static_dir: app/css
+- url: /.*
+  script: main.app
+
+libraries:
+- name: jinja2
+  version: latest

@@ -1,0 +1,11 @@
+.label {
+    text-align: right;
+}
+
+.error{
+    color: red;
+}
+
+.comment_and_like{
+    float: right;
+}

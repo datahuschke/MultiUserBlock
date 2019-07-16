@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}- Login{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+    <h2>Login</h2>
+    <form method="POST">
+        <table>
+            <tr>
+                <td class="label">Username</td>
+                <td>
+                    <input type="text" name="username" value="{{params['username']}}">
+                </td>
+                <td class="error">{{errors['username']}}</td>
+            </tr>
+
+            <tr>
+                <td class="label">Password</td>
+                <td>
+                    <input type="password" name="password" value="">
+                </td>
+                <td class="error">{{errors['password']}}</td>
+            </tr>
+        </table>
+        <input type="submit" name="">
+    </form>
+{% endblock %}
+<br>
+{% block footer %}
+    {{ super() }}
+{% endblock %}

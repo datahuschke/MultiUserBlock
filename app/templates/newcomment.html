@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}- {{content.subject}}{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block htmlcontent %}
+    <form method="post">
+        {% include "_blogpost.html" %}
+        <hr>
+        <h2>Write your comment:</h2>
+        <div class="error">{{error}}</div>
+        <label>
+            <textarea name="comment_content">{{comment.content}}</textarea>
+        </label>
+        <br>
+        <input type="submit">
+        {% if editing %}
+            <a href="/{{editing}}">cancel</a>
+        {% endif %}
+    </form>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

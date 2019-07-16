@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/basic.css">
+    {% block head %}
+    <title>Udacity Blog-Project {% block title %}{% endblock %}</title>
+    {% endblock %}
+</head>
+<!--
+    http://jinja.pocoo.org/docs/2.9/templates/#if
+    https://realpython.com/blog/python/primer-on-jinja-templating/
+-->
+<body>
+    <div id="header">
+        {% block header %}
+            {% if session %}
+                {% include "_header_logged_in.html" %}
+            {% else %}
+                {% include "_header_logged_out.html" %}
+            {% endif %}
+        {% endblock %}
+    </div>
+
+    <hr>
+
+    <p><a href="/">home</a> |
+        {% if session %} <a href="/newpost">new post</a> | {% endif %}<a href="/allposts">read all posts..</a></p>
+
+    <hr>
+
+    <div id="content">{% block htmlcontent %}{% endblock %}</div>
+
+    <hr>
+
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2017 by Lud - Thanks to Udacity for the Nanodegree Programm!
+        {% endblock %}
+    </div>
+</body>
+</html>
